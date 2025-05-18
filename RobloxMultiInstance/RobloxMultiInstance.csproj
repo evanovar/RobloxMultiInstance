@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{071D9EF4-FE69-4722-83B5-34A2B52B11E3}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>RobloxMultiInstance</RootNamespace>
     <AssemblyName>RobloxMultiInstance</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
