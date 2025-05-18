@@ -68,7 +68,7 @@ namespace RobloxMultiInstance773Fix
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("❌ Unexpected error: " + ex.Message);
+                Console.WriteLine("[ERROR] Unexpected error: " + ex.Message);
                 Console.ResetColor();
             }
             finally
