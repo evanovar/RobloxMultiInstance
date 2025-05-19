@@ -14,13 +14,45 @@ namespace RobloxMultiInstance773Fix
         {
             try
             {
-                Console.Title = "Roblox Multi Instance Enabler + 773 Fix";
+                Console.Title = "Roblox Multi Instance Enabler";
+                Console.OutputEncoding = System.Text.Encoding.UTF8;
+                var robloxProcesses = Process.GetProcessesByName("RobloxPlayerBeta");
+                if (robloxProcesses.Length > 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("[WARNING] Roblox instance detected.");
+                    Console.WriteLine("A Roblox instance is already running.");
+                    Console.Write("Do you want to close all instances? (Y/N): ");
+                    Console.ResetColor();
+
+                    string? input = Console.ReadLine()?.Trim().ToLower();
+
+                    if (input == "y")
+                    {
+                        foreach (var proc in robloxProcesses)
+                        {
+                            try { proc.Kill(); } catch { }
+                        }
+
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("[INFO] All Roblox instances terminated.");
+                        Console.ResetColor();
+
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Operation cancelled. Exiting...");
+                        return;
+                    }
+                }
 
                 Console.WriteLine("\r\n  __  __       _ _   _   _____           _                       \r\n |  \\/  |     | | | (_) |_   _|         | |                      \r\n | \\  / |_   _| | |_ _    | |  _ __  ___| |_ __ _ _ __   ___ ___ \r\n | |\\/| | | | | | __| |   | | | '_ \\/ __| __/ _` | '_ \\ / __/ _ \\\r\n | |  | | |_| | | |_| |  _| |_| | | \\__ \\ || (_| | | | | (_|  __/\r\n |_|  |_|\\__,_|_|\\__|_| |_____|_| |_|___/\\__\\__,_|_| |_|\\___\\___|\r\n                                                                 \r\n                                                                 \r\n");
                 Console.WriteLine("Multi Instance + 773 error code fix");
                 Console.WriteLine("Made by evanovar :)\n");
 
-                // Try to create mutex to allow multi-instance
+                // multi instance
                 robloxMutex = new Mutex(true, "ROBLOX_singletonEvent", out bool createdNew);
 
                 if (createdNew)
@@ -35,7 +67,7 @@ namespace RobloxMultiInstance773Fix
                 }
                 Console.ResetColor();
 
-                // Attempt to lock cookies file
+                // 773 fix woah
                 string cookiesPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Roblox\LocalStorage\RobloxCookies.dat");
 
                 if (File.Exists(cookiesPath))
@@ -44,7 +76,7 @@ namespace RobloxMultiInstance773Fix
                     {
                         cookiesLockStream = new FileStream(cookiesPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("[INFO] Error 773 fix applied. Locked RobloxCookies.dat.");
+                        Console.WriteLine("[INFO] Error 773 fix applied.");
                     }
                     catch (IOException)
                     {
@@ -66,7 +98,7 @@ namespace RobloxMultiInstance773Fix
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("❌ Unexpected error: " + ex.Message);
+                Console.WriteLine("[ERROR] Unexpected error: " + ex.Message);
                 Console.ResetColor();
             }
             finally
