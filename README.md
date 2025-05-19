@@ -1,5 +1,6 @@
 # Roblox Multi Instance with TeleportService support
 A lightweight Windows app that enables multiple Roblox instances to run at once, while also fixing the error code Code 773
+
 **Made by:** evanovar
 
 Preview:
@@ -13,7 +14,7 @@ Preview:
 
 ## How to Use
 
-1. Download the latest release executable from the [Releases](https://github.com/yourusername/RobloxMultiInstance773Fix/releases) page.
+1. Download the latest release executable from the [Releases](https://github.com/evanovar/RobloxMultiInstance/releases) page.
 2. Launch the .exe file
 3. Happy multi instancing!
 
