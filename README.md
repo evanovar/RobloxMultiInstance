@@ -22,6 +22,3 @@ Preview:
 
 - Use this tool at your own risk.
 - Some antivirus or security software might flag this tool due to mutex and file-locking behavior.
-
-## Known Issues
-- Roblox closes itself after 20 minutes (I'm trying to fix this) 
